@@ -6,14 +6,15 @@
     100% { transform: rotate(360deg); }
 }
 @keyframes opacity {
-    100% { opacity: 0; }
+    100% {visibility: hidden; z-index: 0;}
 }
 @keyframes section-opacity {
     0% {z-index: 100}
     100% { opacity: 1; z-index: 0}
+   
 }
 
-*, *::before, *::after {
+* {
     box-sizing: border-box;
     list-style: none;
     margin: 0;
@@ -93,9 +94,11 @@ footer {
     width: 100%;
     position: absolute;
     animation: opacity 3s forwards;
+    background: #F2F2F2;
+    z-index: 200;
 }
 .loader {
-    border: 9px solid #f3f3f3;
+    border: 9px solid #fff;
     border-radius: 50%;
     position: absolute;
     transform: (50%, 50%);
@@ -201,6 +204,9 @@ form button {
     gap: 2rem;
     font-weight: 700;
 }
+.filtres ul {
+    flex-wrap: wrap;
+}
 .filtres li {
     border-radius: 25px;
     padding: 10px 20px;
@@ -226,7 +232,15 @@ form button {
 }
 .hebergement {
     width: 65%;
-    animation: .3s section-opacity .5s forwards;
+    animation: .3s section-opacity 3s forwards;
+}
+.populaire {
+    animation: .3s section-opacity 3.4s forwards;
+    width: 31%;
+}
+.activite {
+    margin: 60px 0;
+    animation: .3s section-opacity 3.6s forwards;
 }
 .hebergement img, .activite img {
     min-width: 100%;
@@ -269,10 +283,7 @@ main p {
 }
 
 /* Section populaire */
-.populaire {
-    animation: .3s section-opacity .9s forwards;
-    width: 31%;
-}
+
 .grid-populaire img {
     border-radius: 20px 0px 0px 20px;
     height: 140px;
@@ -305,10 +316,7 @@ main p {
 .activite > div {
     gap: 1rem;
 }
-.activite {
-    margin: 60px 0;
-    animation: .3s section-opacity 1s forwards;
-}
+
 .item {
     border-radius: 20px;
     height: 440px;
@@ -329,7 +337,7 @@ article:hover {
 /* footer */
 .align {
     display: flex;
-    gap: 240px;
+    gap: 20%;
 }
 footer h3 {
     padding-bottom: 20px;
@@ -450,19 +458,11 @@ footer li:hover {
         max-width: 252px;
 
     }
-    footer {
-        gap: 100px;
+    footer .align {
+        gap: 20%;
     }
 }
 
-@media all and (max-width: 945px) {
-    .filtre ul {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-    }
-    
-}
 @media all and (max-width: 400px) {
     .container {
         margin: 0;
